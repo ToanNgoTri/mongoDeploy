@@ -24,15 +24,11 @@ app.get('/',(req,res)=>{
 
 app.get('./add-note', async (req,res) =>{
     try{
-await Book.create([
+await Book.create(
     {
     title:"Sons of Achi",
     body:"Body text goes here...",
-    },
-    {
-    title:"Sons of Thrones",
-    body:"Body text goes here..."}
-])    ;
+    })    ;
 res.send('add data...')
     }
  catch (error){
