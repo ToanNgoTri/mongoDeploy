@@ -8,15 +8,25 @@ const PORT = process.env.PORT || 3000;
 
 mongoose.set('strictQuery',false);
 
-const connectDB = async () =>{
-    try{
-        const conn =  await mongoose.connect(process.env.MONGO_URI);
-        console.log(`mongoDB Connect:${conn.connection.host}`);
-    } catch (error){
-        console.log(error);
-        process.exit(1)
-    }
-}
+// const connectDB = async () =>{
+//     try{
+//         const conn =  await mongoose.connect(process.env.MONGO_URI);
+//         console.log(`mongoDB Connect:${conn.connection.host}`);
+//     } catch (error){
+//         console.log(error);
+//         process.exit(1)
+//     }
+// }
+
+mongoose
+  .connect((process.env.MONGO_URI))
+  .then(() => console.log(`mongoDB Connected`))
+  .catch( (err) => console.log(err))
+
+  app.listen(PORT, ()=>{
+    console.log(`listening on port ${PORT}`);
+})
+
 
 app.get('/',(req,res)=>{
     res.send({Hảo:'Khùng'})
@@ -39,7 +49,7 @@ app.get('/addnote', async (req,res) =>{
 Book.create({title:"Sons of Achi",body:"Body text goes here..."})
 .then( (data) => {
     if(data){
-        res.send('add...')
+        res.send('added')
     }else{
         res.send('error')
     }
@@ -56,8 +66,8 @@ app.get('/books', async (req,res)=>{
 })
 
 
-connectDB().then( ()=> {
-    app.listen(PORT, ()=>{
-        console.log(`listening on port ${PORT}`);
-    })
-})
+// connectDB().then( ()=> {
+//     app.listen(PORT, ()=>{
+//         console.log(`listening on port ${PORT}`);
+//     })
+// })
