@@ -32,7 +32,7 @@ app.get('/',(req,res)=>{
     res.send({Hảo:'Khùng'})
 })
 
-app.get('/addnote', async (req,res) =>{
+app.get('/addnote',  (req,res) =>{
 //     try{
 // await Book.create(
 //     {
