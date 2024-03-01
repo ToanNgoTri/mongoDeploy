@@ -32,7 +32,8 @@ await Book.insertMany([
     {
     title:"Sons of Thrones",
     body:"Body text goes here..."}
-])    
+])    ;
+res.send('add data...')
     }
  catch (error){
         console.log(error);
