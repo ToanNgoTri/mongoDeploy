@@ -19,7 +19,7 @@ mongoose.set('strictQuery',false);
 // }
 
 mongoose
-  .connect((process.env.MONGODB_CONNECT_URI))
+  .connect((process.env.MONGO_URI))
   .then(() => console.log(`mongoDB Connected`))
   .catch( (err) => console.log(err))
 
