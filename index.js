@@ -39,7 +39,7 @@ app.get('/addnote', async (req,res) =>{
 Book.create({title:"Sons of Achi",body:"Body text goes here..."})
 .then( (data) => {
     if(data){
-        res.send('succes')
+        res.send('add...')
     }else{
         res.send('error')
     }
