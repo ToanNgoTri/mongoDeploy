@@ -24,7 +24,7 @@ app.get('/',(req,res)=>{
 
 app.get('./add-note', async (req,res) =>{
     try{
-await Book.insert([
+await Book.create([
     {
     title:"Sons of Achi",
     body:"Body text goes here...",
