@@ -24,10 +24,10 @@ app.get('/',(req,res)=>{
 
 app.get('/addnote', async (req,res) =>{
     try{
-await Book.insert(
+await Book.create(
     {
-    title:"Sons of Achi",
-    body:"Body text goes here...",
+    title:"abc",
+    body:"xyz",
     })    ;
 res.send('add data...')
     }
