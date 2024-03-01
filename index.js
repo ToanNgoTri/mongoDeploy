@@ -22,28 +22,28 @@ app.get('/',(req,res)=>{
     res.send({Hảo:'Khùng'})
 })
 
-app.get('/addnote', (req,res) =>{
-//     try{
-// await Book.insert(
-//     {
-//     title:"Sons of Achi",
-//     body:"Body text goes here...",
-//     })    ;
-// res.send('add data...')
-//     }
-//  catch (error){
-//         console.log(error);
-//         process.exit(1)
-//     }
-
-Book.insert({title:"Sons of Achi",body:"Body text goes here..."})
-.then( (data) => {
-    if(data){
-        res.send('succes')
-    }else{
-        res.send('error')
+app.get('/addnote', async (req,res) =>{
+    try{
+await Book.insert(
+    {
+    title:"Sons of Achi",
+    body:"Body text goes here...",
+    })    ;
+res.send('add data...')
     }
-})
+ catch (error){
+        console.log(error);
+        process.exit(1)
+    }
+
+// Book.insert({title:"Sons of Achi",body:"Body text goes here..."})
+// .then( (data) => {
+//     if(data){
+//         res.send('succes')
+//     }else{
+//         res.send('error')
+//     }
+// })
 })
 
 app.get('/books', async (req,res)=>{
