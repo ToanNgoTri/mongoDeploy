@@ -22,7 +22,7 @@ app.get('/',(req,res)=>{
     res.send({tittle:'book'})
 })
 
-app.get('./add-note', async (req,res) =>{
+app.get('./addnote', async (req,res) =>{
 //     try{
 // await Book.insert(
 //     {
@@ -39,10 +39,11 @@ app.get('./add-note', async (req,res) =>{
 Book.insert({title:"Sons of Achi",body:"Body text goes here..."})
 .then( (data) => {
     if(data){
-        res.send(data)
+        res.send('succes')
     }else{
         res.send('error')
     }
+})
 })
 
 app.get('/books', async (req,res)=>{
