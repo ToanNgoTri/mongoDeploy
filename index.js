@@ -23,27 +23,27 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/addnote', async (req,res) =>{
-    try{
-await Book.create(
-    {
-    title:"abc",
-    body:"xyz",
-    })    ;
-res.send('add data...')
-    }
- catch (error){
-        console.log(error);
-        process.exit(1)
-    }
-
-// Book.insert({title:"Sons of Achi",body:"Body text goes here..."})
-// .then( (data) => {
-//     if(data){
-//         res.send('succes')
-//     }else{
-//         res.send('error')
+//     try{
+// await Book.create(
+//     {
+//     title:"Sons of Achi",
+//     body:"Body text goes here...",
+//     })    ;
+// res.send('add data...')
 //     }
-// })
+//  catch (error){
+//         console.log(error);
+//         process.exit(1)
+//     }
+
+Book.create({title:"Sons of Achi",body:"Body text goes here..."})
+.then( (data) => {
+    if(data){
+        res.send('succes')
+    }else{
+        res.send('error')
+    }
+})
 })
 
 app.get('/books', async (req,res)=>{
