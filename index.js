@@ -19,10 +19,10 @@ const connectDB = async () =>{
 }
 
 app.get('/',(req,res)=>{
-    res.send({tittle:'book'})
+    res.send({Hảo:'Khùng'})
 })
 
-app.get('./addnote', async (req,res) =>{
+app.get('/addnote', (req,res) =>{
 //     try{
 // await Book.insert(
 //     {
