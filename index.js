@@ -23,17 +23,25 @@ app.get('/',(req,res)=>{
 })
 
 app.get('./add-note', async (req,res) =>{
-    try{
-await Book.insert(
-    {
-    title:"Sons of Achi",
-    body:"Body text goes here...",
-    })    ;
-res.send('add data...')
-    }
- catch (error){
-        console.log(error);
-        process.exit(1)
+//     try{
+// await Book.insert(
+//     {
+//     title:"Sons of Achi",
+//     body:"Body text goes here...",
+//     })    ;
+// res.send('add data...')
+//     }
+//  catch (error){
+//         console.log(error);
+//         process.exit(1)
+//     }
+
+Book.insert({title:"Sons of Achi",body:"Body text goes here..."})
+.then( (data) => {
+    if(data){
+        res.send(data)
+    }else{
+        res.send('error')
     }
 })
 
