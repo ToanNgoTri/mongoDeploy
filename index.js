@@ -3,7 +3,7 @@ const app = express()
 const mongoose = require('mongoose');
 require('dotenv').config();
 const Book  = require('./models/books')
-
+const datas = require('./data.json')
 const PORT = process.env.PORT || 3000;
 
 mongoose.set('strictQuery',false);
@@ -29,7 +29,7 @@ mongoose
 
 
 app.get('/',(req,res)=>{
-    res.send({Hảo:'Khùng'})
+    res.send({Hảo:'Khùng'});
 })
 
 app.get('/addnote',  (req,res) =>{
@@ -46,10 +46,11 @@ app.get('/addnote',  (req,res) =>{
 //         process.exit(1)
 //     }
 
-Book.create({title:"love story",body:"Hao va Toan"})
+let input = datas[Math.floor(Math.random() * 7)];
+Book.create(input)
 .then( (data) => {
     if(data){
-        res.send('added')
+        res.send(`'added '.${data}`)
     }else{
         res.send('error')
     }
@@ -57,7 +58,7 @@ Book.create({title:"love story",body:"Hao va Toan"})
 })
 
 app.get('/books', async (req,res)=>{
-   const book = await Book.find();
+   const book = await Book.find({},{_id:0});
    if(book){
        res.json(book)
    }else{
@@ -67,7 +68,7 @@ app.get('/books', async (req,res)=>{
 
 app.get('/delete',  (req,res) =>{
 
-Book.delete({})
+Book.deleteMany({})
 .then( (data) => {
     if(data){
         res.send('deleted')
