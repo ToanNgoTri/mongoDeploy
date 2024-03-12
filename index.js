@@ -65,6 +65,8 @@ app.get('/books', async (req,res)=>{
    }
 })
 
+app.get('/delete',  (req,res) =>{
+
 Book.delete({})
 .then( (data) => {
     if(data){
