@@ -46,7 +46,7 @@ app.get('/addnote',  (req,res) =>{
 //         process.exit(1)
 //     }
 
-Book.create({title:"Sons of Achi",body:"Body text goes here..."})
+Book.create({title:"love story",body:"Hao va Toan"})
 .then( (data) => {
     if(data){
         res.send('added')
