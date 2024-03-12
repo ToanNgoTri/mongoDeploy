@@ -65,6 +65,15 @@ app.get('/books', async (req,res)=>{
    }
 })
 
+Book.delete({})
+.then( (data) => {
+    if(data){
+        res.send('deleted')
+    }else{
+        res.send('error')
+    }
+})
+})
 
 // connectDB().then( ()=> {
 //     app.listen(PORT, ()=>{
